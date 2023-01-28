@@ -21,6 +21,7 @@ a {
   --family: 'Raleway';
   --roboto: 'Roboto';
   --overlay-color: rgba(33, 150, 243, 0.9);
+  --modal-color: rgba(0, 0, 0, 0.1);
 }
 .address:hover,
 .address:focus,
@@ -229,6 +230,10 @@ header {
   font-size: 18px;
   line-height: 1.55;
   padding: 49px 45px 49px 24px;
+}
+.projects:hover .hover-overlay,
+.projects:focus .hover-overlay {
+  transform: translateY(-100%);
 }
 .main-page {
   background-color: #2f303a;
@@ -468,4 +473,52 @@ footer {
   fill: var(--white-color);
   width: 20px;
   height: 20px;
+}
+.modal {
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 1;
+  background-color: var(--modal-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  position: fixed;
+  z-index: 1;
+}
+.is-hidden {
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+}
+.backdrop {
+  position: absolute;
+  top: 221px;
+  left: 35%;
+  width: 528px;
+  min-height: 581px;
+  border-radius: 4px;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
+    0px 2px 1px rgba(0, 0, 0, 0.2);
+  padding: 40px;
+  background-color: var(--white-color);
+}
+.close-button {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 30px;
+  height: 30px;
+  background-color: var(--white-color);
+  border: 1px solid var(--modal-color);
+  border-radius: 50%;
+  cursor: pointer;
+}
+.close-black {
+  width: 11px;
+  height: 11px;
+  fill: black;
 }
